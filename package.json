@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "web3": "^0.20.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }

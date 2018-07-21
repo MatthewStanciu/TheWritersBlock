@@ -2,7 +2,7 @@ pragma solidity ^0.4.23;
 
 contract TheWritersBlock {
   address public owner;
-  uint public last_completed_migration;
+  mapping (address => uint256) public balance;
 
   constructor() public {
     owner = msg.sender;
@@ -12,9 +12,11 @@ contract TheWritersBlock {
     if(msg.sender == owner) selfdestruct(owner);
   }
 
-  function payWriter(uint amount, address receiver) public {
-    if (balance[msg.sender] < amount){return;}
+  function payWriter(uint amount, address receiver) public returns (bool success) {
+    if (balance[msg.sender] < amount) throw;
     balance[msg.sender] -= amount;
-    balance[receiver] += amount;
+    receiver.transfer(amount);
+
+    return true;
   }
 }
