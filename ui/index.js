@@ -13,3 +13,24 @@ const contract = web3.eth.contract([[{"constant": false,"inputs": [{"name": "amo
 var contractInstance = contract.at("0x8ac6f809862eae42fefafcca212efb61607e13e0");
 
 // when the form is submitted, call the payWriter function
+function payUser(addr, amt) {
+  contractInstance.payWriter(addr, amt, {
+    gas: 300000,
+    from: web3.eth.accounts[0],
+    value: web3.toWei(amt, 'ether')
+  }, (err, result) => {
+    cb()
+  });
+}
+
+var vuePay = new Vue({
+  el: '#ethb',
+  data: {
+    output: ''
+  },
+  methods: {
+    pay () {
+      payUser("0xB942e23ad7C7a7F5e47B4aA9856b0601B26006C1", this.$refs.ethamount.value); // putting my address temporarily
+    }
+  }
+});

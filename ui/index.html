@@ -1,6 +1,45 @@
-<doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  </head>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="styles.css"
+<style>
+
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>The Writer's Block</h1>
+  <div class="new">
+    <a href="#" style="float:right">New Post</a>
+  </div>
+</div>
+
+<div class="topnav">
+
+</div>
+
+<div class="row">
+  <div id="leftcolumn">
+    <article-list></article-list>
+    <article-list></article-list>
+    <script>
+      Vue.component('article-list', {
+        template: `
+        <div class="card">
+          <h2>TITLE HEADING</h2>
+          <h5>Title description</h5>
+        </div>
+        `
+      })
+      new Vue({el: '#leftcolumn'});
+    </script>
+    </div>
+
+</div>
+
+
+</div>
+
+</body>
 </html>
