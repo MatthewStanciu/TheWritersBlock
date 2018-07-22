@@ -1,9 +1,4 @@
 import Web3 from 'web3';
-var express = require('express');
-var app = express();
-var http = require('http').Server('app');
-
-app.use('/public', express.static('public'));
 
 if(typeof web3 != 'undefined'){
          console.log("Using web3 detected from external source like Metamask")
@@ -13,6 +8,7 @@ if(typeof web3 != 'undefined'){
          this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 }
 
-app.get("/", function(request, response) {
-  response.sendFile(__dirname + '/index.html');
-});
+const contract = web3.eth.contract([[{"constant": false,"inputs": [{"name": "amount","type": "uint256"},{"name": "receiver","type": "address"}],"name": "payWriter","outputs": [{"name": "success","type": "bool"}],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "kill","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "owner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "balance","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"inputs": [],"payable": false,"stateMutability": "nonpayable","type": "constructor"}]]);
+var contractInstance = contract.at("0x8ac6f809862eae42fefafcca212efb61607e13e0");
+
+// when the form is submitted, call the payWriter function
