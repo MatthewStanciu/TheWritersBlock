@@ -1,4 +1,5 @@
-import Web3 from 'web3';
+var Web3 = require('web3');
+var web3 = new Web3();
 
 if(typeof web3 != 'undefined'){
          console.log("Using web3 detected from external source like Metamask")
