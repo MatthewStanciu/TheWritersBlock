@@ -1,0 +1,52 @@
+{
+  "Addresses": {
+    "Swarm": [
+      "/ip4/0.0.0.0/tcp/4002",
+      "/ip4/127.0.0.1/tcp/4003/ws"
+    ],
+    "API": "/ip4/127.0.0.1/tcp/5002",
+    "Gateway": "/ip4/127.0.0.1/tcp/9090"
+  },
+  "Discovery": {
+    "MDNS": {
+      "Enabled": true,
+      "Interval": 10
+    },
+    "webRTCStar": {
+      "Enabled": true
+    }
+  },
+  "Bootstrap": [
+    "/ip4/104.236.176.52/tcp/4001/ipfs/QmSoLnSGccFuZQJzRadHn95W2CrSFmZuTdDWP8HXaHca9z",
+    "/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ",
+    "/ip4/104.236.179.241/tcp/4001/ipfs/QmSoLPppuBtQSGwKDZT2M73ULpjvfd3aZ6ha4oFGL1KrGM",
+    "/ip4/162.243.248.213/tcp/4001/ipfs/QmSoLueR4xBeUbY9WZ9xGUUxunbKWcrNFTDAadQJmocnWm",
+    "/ip4/128.199.219.111/tcp/4001/ipfs/QmSoLSafTMBsPKadTEgaXctDQVcqN88CNLHXMkTNwMKPnu",
+    "/ip4/104.236.76.40/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64",
+    "/ip4/178.62.158.247/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd",
+    "/ip4/178.62.61.185/tcp/4001/ipfs/QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3",
+    "/ip4/104.236.151.122/tcp/4001/ipfs/QmSoLju6m7xTh3DuokvT3886QRYqxAzb1kShaanJgW36yx",
+    "/ip6/2604:a880:1:20::1f9:9001/tcp/4001/ipfs/QmSoLnSGccFuZQJzRadHn95W2CrSFmZuTdDWP8HXaHca9z",
+    "/ip6/2604:a880:1:20::203:d001/tcp/4001/ipfs/QmSoLPppuBtQSGwKDZT2M73ULpjvfd3aZ6ha4oFGL1KrGM",
+    "/ip6/2604:a880:0:1010::23:d001/tcp/4001/ipfs/QmSoLueR4xBeUbY9WZ9xGUUxunbKWcrNFTDAadQJmocnWm",
+    "/ip6/2400:6180:0:d0::151:6001/tcp/4001/ipfs/QmSoLSafTMBsPKadTEgaXctDQVcqN88CNLHXMkTNwMKPnu",
+    "/ip6/2604:a880:800:10::4a:5001/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64",
+    "/ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd",
+    "/ip6/2a03:b0c0:1:d0::e7:1/tcp/4001/ipfs/QmSoLMeWqB7YGVLJN3pNLQpmmEk35v6wYtsMGLzSr5QBU3",
+    "/ip6/2604:a880:1:20::1d9:6001/tcp/4001/ipfs/QmSoLju6m7xTh3DuokvT3886QRYqxAzb1kShaanJgW36yx",
+    "/dns4/wss0.bootstrap.libp2p.io/tcp/443/wss/ipfs/QmZMxNdpMkewiVZLMRxaNxUeZpDUb34pWjZ1kZvsd16Zic",
+    "/dns4/wss1.bootstrap.libp2p.io/tcp/443/wss/ipfs/Qmbut9Ywz9YEDrz8ySBSgWyJk41Uvm2QJPhwDJzJyGFsD6"
+  ],
+  "Identity": {
+    "PeerID": "QmQv62kfW1FVGY4sHCEiawGwyMPC5juUYx8VXWYmAn77PG",
+    "PrivKey": "CAASqQkwggSlAgEAAoIBAQDWu+6U0xp9GlnbCXYGkTdoIXOrzTP68smLZIOt/RejUtG9dqhNu2OZNCT0npavkl1CHeozJp69KDob80C8h9FKr4td1oDZIsgh3TWiqgRPdTEVy/wWgaHm+miz/SuTQj+DDV0f2zi5WIf0IRA6Qr0ZK6F/kuTs5hCsRzrK0CDFbmT/ddaFDWIxcKYBVpMQIV+aUO3qPIiK3jumFooxGeAkIlycMtidLl4TqH6b1+iIg23vONaXnaCDRaTbh38TF7KOr0qzv1FR+uDYcnoWJ6LThKnCLnvOExcn+tJndfpqgumicPXM+2kh4Fj0t+RiYegeZdbpaKKdLEWaaKzF5cZ/AgMBAAECggEAJUsiVmqLcSrAbFAqVV2nF8inhDDxVCYSZskgLXmFP3JExvjypf1jgNoTiQB5/ygWVkNHx3Zvnz57SRtoJNYZvTTbqYJ1gkCOLYNzqzqH4RzjV3vD3kzJR4o54PiZNswMp8AMalnycg40HmwXm2a33MU9GSDz7UjPoHwGc+7NojwGYlwQEtI8kS6RuSGZooAs+x41rYYPKUvAITE0MhzYpc7eoS7LEiiJ+ME+nRRDGjzviT1OXYQ009nSuln3CTEPZMTWSXOAsSUEapOuc69mYXshHemMGpPuAzTdcQdYlivT1lUNfE4BScOoS8dQeBedzG5aq+EX+iLTdW13Ng44cQKBgQD6zskr7aBXgcY+gDJTU4oU8JIExRKPHe5gSMnJSHO6FiH5ptd8YFqCMgSyoJXmd6SceJatlBjqmAD0MNzpVwG6tjUTTU2hLOdi1Ee0R3CRC98DsbcJ7q4DgVk+cbl0fZRrxVmTXMRIY8dfRsEtmXXJoyV32BOevKC25wVcwJrlQwKBgQDbLfcmJAlq36MkQtrdLQ2zCkxSAdukmf1dY9ZfClzxluWFjKYSZgqCvYkuTsWrjT+VF4UQnUIsLciz/dMscqA70bmHdscbr3OKnuhPJ+AXviqmoCxeCD0pzVeQ28NqC/X1bPkR4z/GGzyZya6lKiygqX2op7dxHSoh+GqhZ/+oFQKBgQDQJ/9ergF9nv9hsBQUhCj96AvIWadlkHne/4o5vCAQOX5JLOd7Gp0DoW+0sQK4HGRKWOr1dQyY5z8ja8ps/wE4bTDvrCDZu+LuazB3tzL9rtSQxFYdsDJMRnZDFS/ONsuQBmKpozxkuCsoMBj0N4FCsFzQck0WWYcpReN1b4Ue8QKBgQDAOHu8U3Z+6EsnjgpsVwrgrnNoqIB8xyBROzHSgEArEG+SxFsRX7RwHNGmbyck4OeWVd45R/G01SJj2IPPQ2gLjk7r4tuUCDeIpvyODyaVLA4zu92tSgR6GMBnJpUm9/5pk3yMl4RitZhcN2iXKXmiHYM62nwjE7TTvg2mKJMqUQKBgQCvA16NdMVRHUDjbl4NVFdf2K4920RXiRSYB1K+fZI+pgC27c526zCCFW66peVKDSyTDIuo5ybI2O3mSXjhJyhCDf873OexBXVE4f+MdwRKZzxkZsaC6JLYKRsJb4VvOSxRaJTlkX347rdutRGcJeyOmeP6G//kJFL4MK9St1OYWQ=="
+  },
+  "Keychain": {
+    "dek": {
+      "keyLength": 64,
+      "iterationCount": 10000,
+      "salt": "RK0vBFeN/jjmfbBKehg9WViF",
+      "hash": "sha2-512"
+    }
+  }
+}

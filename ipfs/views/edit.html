@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Edit</title>
+    <link rel="stylesheet" href="/editormd.min.css">
+    <style>
+      html {
+       height: 100%; 
+      }
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Helvetica Neue', Roboto, 'Segoe UI', sans-serif;
+      padding: 10px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .container {
+      height: 100%;  
+    }
+      .btn-outline-dark {
+        border-radius: 0 !important; 
+      }
+      input {
+       border-radius: 0 !important; 
+      }
+      .submit-wrapper {
+        display: flex;
+        justify-content: flex-end;
+      }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        Create your blog post
+      </h1>
+      <small>(and get paid)</small>
+      <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="World domination plans...">
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" placeholder="Dr. " readonly>
+      </div>
+      </form>
+      <div id="editormd">
+        <textarea style="display:none;">### Welcome to *The Writers Block*! 
+          You can easily edit using the buttons above or standard markdown syntax!</textarea>
+      </div>
+      <div class="submit-wrapper">
+        <button type="button" id="submit" class="btn btn-lg btn-outline-dark">
+        Submit
+      </button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.5/dist/loadingoverlay.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script src="/editormd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script>
+      $.LoadingOverlay('show');
+      $(function() {
+        var editor = editormd("editormd", {
+            path : "/lib/", // Autoload modules mode, codemirror, marked... dependents libs path
+            saveHTMLToTextarea: true,
+            height: '90%',
+            onload: () => {
+               $.LoadingOverlay('hide'); 
+            }
+        });
+        
+        // if(web3.eth.accounts[0] == undefined){
+          // console.log('no sign in');
+        // }else{
+          // $('#author').val();
+          if(web3.eth.accounts[0] == undefined){
+             window.location.href = '/err/login'; 
+          }
+          $(function(){
+            // var web3 = new Web3(Web3.givenProvider);
+
+            var web3 = window.web3;
+            if (typeof web3 != 'undefined') {
+                     console.log("Using web3 detected from external source like Metamask")
+                     this.web3 = new Web3(web3.currentProvider)
+            }
+            // web3.eth.getAccounts().then(res => console.log(res));
+            web3.eth.getAccounts((err, accounts) => {
+              $('#author').val(accounts[0]);
+            });
+          });
+        // };
+        $('#submit').click(() => {
+          $.LoadingOverlay('show');
+          $.ajax({
+            url: `/post/${$('#author').val()}/n/${$('#title').val()}`,
+            data: {'data': editor.getHTML()},
+            type: 'POST',
+            success: (rec_) => {
+             var rec = JSON.parse(rec_);
+              var data = {
+                'hash' : rec.hash,
+                'time' : Date.now()
+              };
+              $.ajax({
+                url: `https://writersblockcentral--physicalcomputi.repl.co/post/${$('#author').val()}/n/${$('#title').val()}`,
+                data: data,
+                type: 'POST', 
+                success: () => {
+                  $.LoadingOverlay('hide');
+                  window.location.href = `https://writersblockcentral--physicalcomputi.repl.co/post/v?hash=${data.hash}&author=${$('#author').val()}`;
+                }
+            });
+            }
+          });
+        });
+
+        /*
+        // or
+        var editor = editormd({
+            id   : "editormd",
+            path : "../lib/"
+        });
+        */
+    });
+    </script>
+  </body>
+</html>
