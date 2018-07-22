@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    @font-face {
+      font-family: "Charis";
+      src: url("/CharisSILR.ttf") format("truetype");
+    }
+    div {
+      width: 750px;
+      margin-left: 275px;
+      margin-right: 275px;
+      word-wrap: break-word;
+    }
+    h1 {
+      text-align: center;
+      font-size: 75px;
+      font-family: 'Charis';
+    }
+    p {
+      font-size: 20px;
+      line-height: 1.7;
+      font-family: 'Charis';
+    }
+    .reward {
+      font-size: 25px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .back {
+      text-decoration: none;
+      float: left;
+      color: black;
+      background-color: #f1f1f1;
+      padding: 5px;
+      margin-right: auto;
+    }
+
+    body,html {
+      padding: 0 !important;
+      height: 100%;
+    }
+    #content {
+      margin-top: 85px;
+      position: relative;
+    } h1 {
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body>
+  <div class='header'>
+    <a href="/" class="back">Back</a><span>The Writers Block (decentralized blog)</span>
+  </div>
+  <div id="content">
+
+  </div>
+  
+  <div id="pay">
+    <hr>
+    <p class="reward">Reward this author directly by sending them some Ether!</p>
+    <form>
+      <input type="text" id="amt" class="amttext" placeholder="Type some amount of Ether">
+      <button type="button" class="ethb" id="eth" ref="ethamount" v-on:click="pay">Send Ether</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="/js/view.js"></script>
+  <script src="/js/crypto.bundle.js"></script>
+</body>
+</html>

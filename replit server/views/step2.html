@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #48DB48;
+    }
+    .wrapper {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    h1 {
+      color: white;
+      font-size: 96px;
+    }
+  </style>
+</head>
+<body>
+  <div class='wrapper'>
+    <h1>Step 2: See It</h1>
+    
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    var socket = io();
+      socket.on('step', (step) => {
+        if(step == 2){
+          var iframe = $('.wrapper').append(`<iframe src="https://writersblockcentral--physicalcomputi.repl.co/" width="800" height="1200"></iframe>`);
+          $(() => {
+            console.log('done');
+            setTimeout(() => {
+              $($('iframe').contents().find('.card')[0]).css('background-color', '#48DB48');
+            }, 500);
+            
+            setInterval(() => {
+              if($('iframe')[0].contentWindow.window.location.href != "https://writersblockcentral--physicalcomputi.repl.co/"){
+                socket.emit('step', '3');
+                socket.emit('url', $('iframe')[0].contentWindow.window.location.href);
+                $('iframe').remove();
+              }
+            }, 500);
+          });
+          // console.log(iframe);
+          //   iframe.load(() => {
+          //     console.log('finished')
+              
+          //   }).then(() => {
+          //     
+          //   });
+          
+        }else if(step == "reset"){
+            window.location.reload();
+          }else{
+          $('iframe').remove()
+        }
+      });
+  </script>
+ </body>
+ </html>

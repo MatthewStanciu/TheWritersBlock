@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="css/animate.css" rel="stylesheet">
+</head>
+<body class="animated fadeIn">
+  <div class="header">
+    <h1>The Writer&apos;s Block</h1>
+  <div class="new">
+  <a href="https://jasper-velociraptor.glitch.me/post/n" style="float:right">New Post</a>
+</div>
+</div>
+  <div class="row">
+    <div id="leftcolumn"><article-list title="Lauren Alaina and Alex Hopkins Engaged!" author="0x1fd99e5f0b3b6d699549b5c52c7d3d321b965c78" link="Qmedyqd6Am1DeHnVXXitd4oZd56PXVuzUgNifDdi6En5Ax"></article-list><article-list title="Geologists Think There Are a Quadrillion Tons of Diamonds in the Earth" author="0x1fd99e5f0b3b6d699549b5c52c7d3d321b965c78" link="Qmcwtn6Syhi5WeW3ascocxKJ6gy8f8u9aK3ugxRuAQrVet"></article-list><article-list title="Trade War to Come, French Minister Warns" author="0x1fd99e5f0b3b6d699549b5c52c7d3d321b965c78" link="QmS4j31yow4vgXFuxonKUgEmhsP1fh1SYQDmDvXVwM6sWs"></article-list><article-list title="An almost-working cryptocurrency built from scratch in 24 hours" author="0xb942e23ad7c7a7f5e47b4aa9856b0601b26006c1" link="QmXKCMpPDSQszUsSrxJ6JPhr1CkPL6aXzW29Xo8csKEMQ3"></article-list>
+      </div>
+      <script>
+        Vue.component('article-list', 
+        {
+        props: [
+          'title',
+          'author',
+          'date',
+          'link'
+        ],
+        template: `
+        <div class="card" v-on:click="navigate($props.link, $props.author)">
+          <h2>{{ title }}</h2>
+          <h5>By {{ author }}</h5>
+          <span class="date">{{ date }}</span>
+        </div>
+        `,
+        methods : {
+          navigate: (msg, author) => {
+            window.location.href = `/post/v?hash=${msg}&author=${author}`;
+            // console.log(e);
+            // console.log(this.);
+          }
+        }
+        })
+        new Vue({el: '#leftcolumn'});
+      </script>
+    </div>
+
+  </body></html>

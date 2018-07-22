@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #774A8E;
+    }
+    .wrapper {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    h1 {
+      color: white;
+      font-size: 96px;
+    }
+  </style>
+</head>
+<body>
+  <div class='wrapper'>
+    <h1>Step 1: Blog It</h1>
+    <iframe src="https://jasper-velociraptor.glitch.me/post/n" width="800" height="1200"></iframe>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      var socket = io();
+        socket.on('step', (step) => {
+          console.log(step);
+          if(step == "reset"){
+            window.location.reload();
+          }
+        })
+        setInterval(() => {
+          if($('iframe')[0].contentWindow.window.location.href != "https://jasper-velociraptor.glitch.me/post/n"){
+            socket.emit('step', '2');
+            // $('iframe').attr('src', 'https://jasper-velociraptor.glitch.me/post/n');
+            $('iframe').hide();
+          }
+        }, 200);
+    </script>
+  </div>
+ </body>
+ </html>
